@@ -2,19 +2,22 @@ class DeleteUserForm{
 
   constructor() 
    {
-     // form elements and variables declaration
+
+            // form elements and variables declaration
+            this.title = createElement('h1');
+            this.useridText = createElement('h5');
+            this.nameText = createElement('h5');
+            this.ageText = createElement('h5');
+            this.button = createButton('Next');
+            this.button1 = createButton('Prev');
+            this.endMsg = createElement('h3');
+            this.button2 = createButton('Delete User');
+            this.hobbies = createElement('h5')
+
      this.viewUserCount=0;
      this.counter =0;
      this.usr=0;
 
-     this.title = createElement('h1');
-     this.useridText = createElement('h5');
-     this.nameText = createElement('h5');
-     this.ageText = createElement('h5');
-     this.button = createButton('Next');
-     this.button1 = createButton('Prev');
-     this.endMsg = createElement('h3');
-     this.button2 = createButton('Delete User');
    }
  // function to hide form elements 
      hide(){
@@ -25,6 +28,7 @@ class DeleteUserForm{
       this.nameText.hide();
       this.useridText.hide();
       this.button2.hide();
+      this.hobbies.hide();
     }
 
      async start()
@@ -57,7 +61,11 @@ class DeleteUserForm{
             this.usr = Object.keys(UserDetails).length;
            // console.log("usr",this.usr) ;            
             this.showUser();
-            this.button2.position(240, 300);
+
+
+
+
+            this.button2.position(240, 350);
             this.button1.position(220, 400);
             this.button.position(290, 400);
             this.button2.mousePressed(()=>{
@@ -121,6 +129,8 @@ class DeleteUserForm{
         // function to display user details in form
       showUser()
       {
+
+ 
             //console.log("UserDetails",UserDetails[temp]) 
             this.title.html("Delete User Information");
             this.title.position(250, 30);
@@ -131,6 +141,8 @@ class DeleteUserForm{
             //this.name.position(220, 190);
             this.ageText.html('User Age:'+UserDetails[temp].age);
             this.ageText.position(150, 240);
+            this.hobbies.html('User Hobbies:'+UserDetails[temp].hobbies);
+            this.hobbies.position(150, 300);
 
       }
 

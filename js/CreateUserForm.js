@@ -2,16 +2,9 @@ class CreateUserForm{
 
     constructor() {
 
-      // form elements declaration
-        this.title = createElement('h1');
-        this.useridText = createElement('h5');
-        this.nameText = createElement('h5');
-        this.name = createInput("");
-        this.ageText = createElement('h5');
-        this.age = createInput("");
-        this.button = createButton('Submit');
+
         this.newUserid;
-        this.successMsg = createElement('h3');
+
        }
    
        // function to hide form elements 
@@ -23,6 +16,9 @@ class CreateUserForm{
          this.ageText.hide();
          this.nameText.hide();
          this.useridText.hide();
+         this.hobbies.hide();
+         this.hobbiesText.hide();
+
        }
 
        async start()
@@ -37,7 +33,19 @@ class CreateUserForm{
 
         userCount+=1;
         this.newUserid =Math.floor(Math.random() * 10000);
-        this.useridText.html('User ID   :                       '+this.newUserid);
+              // form elements declaration
+        this.title = createElement('h1');
+        this.useridText = createElement('h5');
+        this.nameText = createElement('h5');
+        this.name = createInput("");
+        this.ageText = createElement('h5');
+        this.age = createInput("");
+        this.button = createButton('Save');
+        this.successMsg = createElement('h3');
+        this.hobbies = createElement('TEXTAREA');
+        this.hobbiesText =createElement('h5');
+
+         this.useridText.html('User ID   :                       '+this.newUserid);
         this.useridText.position(150, 100);
         //console.log("userCount to be displayed",userCount) 
         this.title.html("Enter User Information");
@@ -49,8 +57,14 @@ class CreateUserForm{
         this.name.position(220, 190);
         this.ageText.html('User Age:');
         this.ageText.position(150, 240);
+    
         this.age.position(220, 260);
-        this.button.position(290, 310);
+        this.hobbiesText.html('User Hobbies:');
+        this.hobbies.position(220, 300);
+        this.hobbiesText.position(137, 300);
+
+        this.button.position(220, 380);
+
     
         this.button.mousePressed(()=>{
          this.hide();
@@ -58,6 +72,7 @@ class CreateUserForm{
          this.successMsg.position(250, 100);
          user.name = this.name.value();
          user.age = this.age.value();
+         user.hobbies =this.hobbies.value();
          user.index = userCount;
          user.userid=this.newUserid;
          user.update();

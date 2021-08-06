@@ -15,7 +15,7 @@ function preload()
 }
 
 function setup(){
- canvas = createCanvas(850,500);
+ canvas = createCanvas(850,550);
  database = firebase.database();
 
  // HTML elements on the main page

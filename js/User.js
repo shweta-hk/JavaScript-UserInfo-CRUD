@@ -5,6 +5,7 @@ class User{
         this.name = null;
         this.userid=0;
         this.deleteUsr;
+        this.hobbies;
         
       }
     
@@ -29,6 +30,7 @@ class User{
           database.ref(userIndex).set({
           name:this.name,
           age:this.age,
+          hobbies:this.hobbies,
           userid:this.userid,
         });
       }
